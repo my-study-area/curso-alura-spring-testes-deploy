@@ -38,5 +38,12 @@ public class CursoRepositoryTest {
 		Assert.assertNotNull(curso);
 		Assert.assertEquals(nomeCurso, curso.getNome());
 	}
+	
+	@Test
+	public void deveRetornarNullQuandoBuscarUmCursoPorNomeQueNaoEstejaCadastrado() {
+		String nomeCurso = "PHP";
+		Curso curso = repository.findByNome(nomeCurso);
+		Assert.assertNull(curso);
+	}
 
 }
