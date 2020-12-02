@@ -28,3 +28,8 @@ cria imagem docker da aplicação:
 ```bash
 docker build -t alura/forum .
 ```
+
+inicia container com variáveis de ambiente:
+```bash
+docker run -p 8080:8080 -e SPRING_PROFILES_ACTIVE='prod' -e FORUM_DATABASE_URL='jdbc:h2:mem:alura-forum' -e FORUM_DATABASE_USERNAME='sa' -e FORUM_DATABASE_PASSWORD='' -e FORUM_JWT_SECRET='123456' alura/forum
+```
