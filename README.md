@@ -11,6 +11,14 @@
     </a>
 </p>
 
+## Aulas
+### Módulo 04 - Delpoy
+#### Aula 04.02 - Gerando o jar da aplicação
+- Para gerar o jar da aplicação usando eclipse clique com o `botão direito do mouse no projeto > Run as > Maven install`
+- Para gerar o jar via linha de comando no terminal execute `./mvnw clean package`.
+- O jar é gerado dento da pasta target, na raiz do projeto
+- Para executar a aplicação execute `java -jar nomeDoArquivo.jar`, dentro do diretório `target`.
+
 ## Anotações
 - comando para execução de teste de repositório na linha de comando:
 ```bash
