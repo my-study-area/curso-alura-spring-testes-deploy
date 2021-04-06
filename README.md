@@ -19,6 +19,33 @@
 - O jar é gerado dento da pasta target, na raiz do projeto
 - Para executar a aplicação execute `java -jar nomeDoArquivo.jar`, dentro do diretório `target`.
 
+#### Aula 04.04 - Externalizando senhas com variáveis de ambiente
+- Para alterar o nome jar criado adiciona a tag `<finalName>nodeDoJar</finalName>`, dento de build, no arquivo `pom.xml`. Exemplo:
+```xml
+//restante do código
+<build>
+  <finalName>forum</finalName>
+  <plugins>
+    <plugin>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-maven-plugin</artifactId>
+    </plugin>
+  </plugins>
+</build>
+```
+- Use no eclipse, `botão direito do mouse no projeto > Run as > Run Configurations`, em Java Application, no lado esquerdo,  selecione a classe principal do projeto e no lado direito clique na aba Arguments  defina as variáveis de ambiente (Ex: `-Dspring.profiles.active=prod`).
+- As variáveis também podem ser definidas no sistema operacional, exemplo no Linux:
+```bash
+export FORUM_DATABASE_URL=jdbc:h2:mem:alura-forum
+export FORUM_DATABASE_USERNAME=sa
+export FORUM_DATABASE_PASSWORD=
+export FORUM_JWT_SECRET=123456
+```
+- Definindo as variáveis de ambiente na linha de comando:
+```bash
+java -jar -Dspring.profiles.active=prod -DFORUM_DATABASE_URL=jdbc:h2:mem:alura-forum -DFORUM_DATABASE_USERNAME=sa -DFORUM_DATABASE_PASSWORD= -DFORUM_JWT_SECRET=123456 forum.jar
+```
+
 ## Anotações
 - comando para execução de teste de repositório na linha de comando:
 ```bash
