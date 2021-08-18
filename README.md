@@ -86,4 +86,29 @@ docker build -t alura/forum .
 docker run -p 8080:8080 -e SPRING_PROFILES_ACTIVE='prod' -e FORUM_DATABASE_URL='jdbc:h2:mem:alura-forum' -e FORUM_DATABASE_USERNAME='sa' -e FORUM_DATABASE_PASSWORD='' -e FORUM_JWT_SECRET='123456' -e PORT='8080' alura/forum
 ```
 
-- [Comandos para onfiguração e deploy do docker no Heroku](https://devcenter.heroku.com/articles/container-registry-and-runtime)
+- [Comandos para configuração e deploy do docker no Heroku](https://devcenter.heroku.com/articles/container-registry-and-runtime)
+
+Principais comandos:
+
+```bash
+# realiza login
+heroku login
+
+# realiza login na parte de containers
+heroku container:login
+
+# cria app no heroku
+heroku create <NOME-DO-APP>
+
+# adiciona o repositório remoto do git do heroku
+heroku git:remote –a <NOME-DO-APP>
+
+# envia a imagem para o heroku
+heroku container:push web
+
+# cria uma release da imagem
+heroku container:release web
+
+# abre o app no browser
+heroku open
+```
